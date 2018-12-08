@@ -1,0 +1,148 @@
+{% load static %}
+
+
+<html>
+<head>
+	<meta content="charset=utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="{% static 'home/stylesheet.css'%}">
+	<link rel="stylesheet" href="{% static 'home/profile.css'%}">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
+	<script type="text/javascript" src="{% static 'home/profilejscript.js'%}"></script>
+	<title>User Profile</title>
+</head>
+<body>
+  <div class="fixednav pro">
+    <ul>
+      <li><a href="http://127.0.0.1:8000/user/home"><img src="{%static 'home/images/logo.png'%}"></a></li>
+      <li><a href="http://127.0.0.1:8000/user/home/">MEDEASE.com</a> - Medical Profile</li>
+		<li><a href="http://127.0.0.1:8000/user/logout"> Logout</a></li>
+      <li>Hey {{name}}</li>
+      <li><a href="#">About Us</a></li>
+	  <li><a href="http://127.0.0.1:8000/user/home">Home</a></li>
+    </ul>
+  </div>
+  <section class="top-heading">
+	  <div class="container">
+		  <div class="col-onehalf">
+		  <div class="head">
+		    <div class="left">
+				<img src="{%static 'home/images/history.png'%}">
+
+	        </div>
+			<div class="right">
+				<h2>Medical Profile</h2>
+			</div>
+	      </div>
+	      </div>
+	  </div>
+  </section>
+  <section class="navigation">
+	  <div class="container">
+		  <h4 class="active">Personal Information</h4>
+		  <div class="content">
+			  <span class="left-align">First Name:</span><span class="right-align">{{name}}</span>
+			  <span class="left-align">Last Name:</span><span class="right-align">{{ lname}}</span>
+			  <span class="left-align">D.O.B:</span><span class="right-align">{{dob}}</span>
+			  <span class="left-align">Gender:</span><span class="right-align">{{gender}}</span>
+			  <span class="left-align">Email Address:</span><span class="right-align">{{email}}</span>
+			  <span class="left-align">Address:</span><span class="right-align">{{address}}</span>
+			  <span class="left-align">City:</span><span class="right-align">{{city}}</span>
+			  <span class="left-align">State:</span><span class="right-align">{{state}}</span>
+			  <span class="left-align">Zip:</span><span class="right-align">{{zip}}</span>
+			  <span class="left-align">Contact Number:</span><span class="right-align">{{phone}}</span>
+
+		</div>
+		  <h4>Medical Information</h4>
+		  <div class="content medical">
+			  <span class="left-align">Blood Group</span><span class="right-align">{{blood_group}}</span>
+			  <span class="left-align">Any History of Allergic to Drug:</span><span class="right-align">{{drug_allergy}}</span>
+			  <span class="left-align">History of Addiction</span><span class="right-align">{{addict_hist}}</span>
+			  <span class="left-align">Psychiatric Illness:</span><span class="right-align">{{psych_ill}}</span>
+			  <span class="left-align">Hypertension</span><span class="right-align">{{hypertension}}</span>
+			  <span class="left-align">Diabetes Mellitus:</span><span class="right-align">{{diabetes}}</span>
+			  <span class="left-align">Bronchial Asthma:</span><span class="right-align">{{asthma}}</span>
+			  <span class="left-align">Allergic Bronchites:</span><span class="right-align">{{bronchites}}</span>
+			  <span class="left-align">Convulsioris or Fits:</span><span class="right-align">{{fits}}</span>
+			  <span class="left-align">Any Congential Dieases:</span><span class="right-align">{{any_congential}}</span>
+			  <span class="left-align">History of any major Surgery or Accident:</span><span class="right-align">{{surgery_accident}}</span>
+			  <span class="left-align">History of any Drug Intake :</span><span class="right-align">{{drug_intake}}</span>
+			  			  <span class="left-align">Other History (If Any):</span><span class="right-align">{{other}}</span>
+
+		</div>
+		  <h4>Edit Profile</h4>
+		  <div class="content">
+
+			  <form id="personal" action="" method="post">
+				  {% csrf_token %}
+        <label>First Name: </label>
+{{ name }}<br>
+ <label>Last Name: </label>
+{{ lname }}<br>
+				   <label>Email-Id: </label>
+{{ email }}<br>
+     <label>Gender: </label>
+<input type="text" name="gender" value="{{ gender }}"><br>
+<label>Address: </label>
+<input type="text" name="address" value="{{ address }}"><br>
+<label>City: </label>
+<input type="text" name="city" value="{{ city }}"><br>
+<label>State: </label>
+<input type="text" name="state" value="{{ state }}"><br>
+<label>Zip: </label>
+<input type="text" name="zip" value="{{ zip }}"><br>
+<label>Phone Number: </label>
+<input type="text" name="phonen" value="{{ phonen }}"><br>
+
+    <button type="submit"> Submit </button>
+</form>
+
+           </div>
+ 		  <h4>Edit Medical Information</h4>
+ 		  <div class="content">
+
+
+			  <form id="personal" action="" method="post">
+				 {% csrf_token %}
+				  {{medform.as_ul}}
+    <button type="submit"> Submit </button>
+
+			  </form>
+            </div>
+  		  <h4>Change Password</h4>
+  		  <div class="content">
+  		  <form id="personal" class="perpwd" action="" method="post">
+  			  {% csrf_token %}
+			  {{pform.as_p}}
+			  <button type="submit"> Submit </button>
+  			  </form>
+             </div>
+
+  <section class="banner2">
+  	<div class="container">
+
+  	       <h1>"Convenience at your fingertips"</h1>
+
+      </div>
+  </section>
+  <footer>
+  	<div class="container">
+  		<div class="left">
+  			<ul>
+  				<li>Home</li>
+  				<li>About Us</li>
+  				<li>Contact Us</li>
+  				<li>Policies</li>
+  				<li>Terms & Conditions</li>
+  			</ul>
+  		</div>
+  		<div class="right">
+  			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.9769512972734!2d77.36990431508251!3d28.630452882418645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce551491b3ce7%3A0x7335d9fcfd4d9db0!2sJaypee+Institute+of+Information+Technology!5e0!3m2!1sen!2sin!4v1474887295509" width="100%" height="145px" frameborder="0" style="border:0" allowfullscreen></iframe>
+  		</div>
+  	</div>
+  </footer>
+  </body>
+  </html>

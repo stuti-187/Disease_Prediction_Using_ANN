@@ -1,0 +1,280 @@
+{% load static %}
+
+<html>
+<head>
+	<meta content="charset=utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="{% static 'home/stylesheet.css'%}">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
+	<script type="text/javascript" src="{% static 'home/jscript.js'%}"></script>
+	<title>Home</title>
+</head>
+<body>
+	<div class="wrapper">
+	<div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
+		<div class="cd-user-modal-container"> <!-- this is the container wrapper -->
+			<ul class="cd-switcher">
+				<li><a href="#0">Sign in</a></li>
+				<li><a href="#0">New account</a></li>
+			</ul>
+
+			<div id="cd-login"> <!-- log in form -->
+				<form class="cd-form" method="post" action="">
+                    {% csrf_token %}
+					<p class="fieldset">
+						<input type="email" name="email" placeholder="E-mail">
+
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<input type="password" name="pass" placeholder="Password">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<input type="checkbox" id="remember-me" checked>
+						<label for="remember-me">Remember me</label>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width" type="submit" value="Login">
+					</p>
+				</form>
+
+				<p class="cd-form-bottom-message"><a href="#0">Forgot your password?</a></p>
+				<!-- <a href="#0" class="cd-close-form">Close</a> -->
+			</div> <!-- cd-login -->
+
+			<div id="cd-signup"> <!-- sign up form -->
+				<form class="cd-form" method="post" action="">
+                    {% csrf_token %}
+					<p class="fieldset">
+						<input type="text" name="first_name" placeholder="First Name">
+
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<input type="text" name="last_name" placeholder="Last Name">
+
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<input type="email" name="email_id" placeholder="E-mail">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						Date of Birth:<br><br>
+						<input type="date" name="date_of_birth">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<input type="password" name="password" placeholder="Password">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<input type="checkbox" id="accept-terms">
+						<label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width has-padding" type="submit" value="Create account">
+					</p>
+				</form>
+
+				<!-- <a href="#0" class="cd-close-form">Close</a> -->
+			</div> <!-- cd-signup -->
+
+			<div id="cd-reset-password"> <!-- reset password form -->
+				<p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+
+				<form class="cd-form">
+					<p class="fieldset">
+						<label class="image-replace cd-email" for="reset-email">E-mail</label>
+						<input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset">
+						<input class="full-width has-padding" type="submit" value="Reset password">
+					</p>
+				</form>
+
+				<p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
+			</div> <!-- cd-reset-password -->
+			<a href="#0" class="cd-close-form">Close</a>
+		</div> <!-- cd-user-modal-container -->
+	</div>
+	  <div class="fixedbar">
+	    <ul>
+	      <li><a href="Home.html"><img src="{% static 'home/images/logo.png' %}"></a></li>
+	      <li><a href="Home.html">MEDEASE.com</a></li>
+	      <li><a class="cd-signup" href="#0">Register</a></li>
+	      <li><a class="cd-signin" href="#0">Login</a></li>
+	      <li><a href="#">About Us</a></li>
+		  <li><a href="Home.html">Home</a></li>
+	    </ul>
+	  </div>
+	<header>
+      <div class="nav">
+		<div class="container">
+		<div class="left">
+		    <span><a href="Home.html">Home</a></span>
+		    <span>About Us</span>
+	    </div>
+		<div class="centre">
+		<img src="{% static 'home/images/logo.png'%}">
+	    </div>
+		<div class="right">
+		    <span><a class="cd-signin" href="#0">Login</a></span>
+	    	<span><a class="cd-signup" href="#0">Register</a></span>
+	    </div>
+	    </div>
+     </div>
+	</header>
+	<section class="banner">
+			<div class="title">
+				<h2>MEDEASE.com</h2>
+				<p>Healthcare Made Easy</p>
+			</div>
+	</section>
+	<section class="interactive">
+		<div class="container">
+			<div class="row1">
+			<div class="hex f1">
+				<div class="inner">
+					<img src="{% static 'home/images/chat.png'%}">
+				</div>
+				<div class="hex2">
+			    </div>
+				<div class="hex3">
+				</div>
+				<div class="arrow-up"></div>
+				<div class="middle">
+					<p>Live Chat</p>
+				</div>
+				<div class="arrow-down"></div>
+			</div>
+			<div class="hex f2">
+				<div class="inner">
+					<img src="{% static 'home/images/docs.png'%}">
+				</div>
+				<div class="hex2">
+			    </div>
+				<div class="hex3">
+				</div>
+				<div class="arrow-up"></div>
+				<div class="middle">
+					<p>Recommended Doctors</p>
+				</div>
+				<div class="arrow-down"></div>
+			</div>
+			<div class="hex f3">
+				<div class="inner">
+					<img src="{% static 'home/images/cart.png'%}">
+				</div>
+				<div class="hex2">
+			    </div>
+				<div class="hex3">
+				</div>
+				<div class="arrow-up"></div>
+				<div class="middle">
+					<p>Medicines</p>
+				</div>
+				<div class="arrow-down"></div>
+			</div>
+			<div class="hex f4">
+				<div class="inner">
+					<img src="{% static 'home/images/history.png'%}">
+				</div>
+				<div class="hex2">
+			    </div>
+				<div class="hex3">
+				</div>
+				<div class="arrow-up"></div>
+				<div class="middle">
+					<p>Medical History</p>
+				</div>
+				<div class="arrow-down"></div>
+			</div>
+		    </div>
+			<div class="row2">
+				<div class="hex f5">
+					<div class="inner">
+						<img src="{% static 'home/images/forum.gif'%}">
+					</div>
+					<div class="hex2">
+				    </div>
+					<div class="hex3">
+					</div>
+					<div class="arrow-up"></div>
+					<div class="middle">
+						<p>Discussion Forum</p>
+					</div>
+					<div class="arrow-down"></div>
+				</div>
+				<div class="hex f6">
+					<div class="inner">
+						<img src="{% static 'home/images/symptom.png'%}">
+					</div>
+					<div class="hex2">
+				    </div>
+					<div class="hex3">
+					</div>
+					<div class="arrow-up"></div>
+					<div class="middle">
+						<p><a href="http://127.0.0.1:8000/symptomchecker/search">Symptom Checker</a></p>
+					</div>
+					<div class="arrow-down"></div>
+				</div>
+				<div class="hex f7">
+					<div class="inner">
+						<img src="{% static 'home/images/blood.jpg'%}">
+					</div>
+					<div class="hex2">
+				    </div>
+					<div class="hex3">
+					</div>
+					<div class="arrow-up"></div>
+					<div class="middle">
+						<p>Blood Units Locator</p>
+					</div>
+					<div class="arrow-down"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="banner2">
+		<div class="container">
+
+		       <h1>"Convenience at your fingertips"</h1>
+
+	    </div>
+	</section>
+	<footer>
+		<div class="container">
+			<div class="left">
+				<ul>
+					<li>Home</li>
+					<li>About Us</li>
+					<li>Contact Us</li>
+					<li>Policies</li>
+					<li>Terms & Conditions</li>
+				</ul>
+			</div>
+			<div class="right">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.9769512972734!2d77.36990431508251!3d28.630452882418645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce551491b3ce7%3A0x7335d9fcfd4d9db0!2sJaypee+Institute+of+Information+Technology!5e0!3m2!1sen!2sin!4v1474887295509" width="100%" height="145px" frameborder="0" style="border:0" allowfullscreen></iframe>
+			</div>
+		</div>
+	</footer>
+  </div>
+</body>
+</html>
